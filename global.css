@@ -41,7 +41,10 @@ input,button,textarea,select{font-size:100%}
 /* ************************************************************************************************
 		struture
 ************************************************************************************************ */
-#page {overflow:hidden}
+#page {
+	overflow:hidden;
+	background: #F8F8F8;
+}
 	#header {z-index:10;}
 	#columns {z-index:1;}
 		#left_column {}
@@ -672,34 +675,18 @@ div.star_hover a, div.star a:hover { background-position: 0 -32px }
 		HEADER
 ************************************************************************************************ */
 #header {min-height:145px}
-	#header .topbar .container > div:after{
-	
-		background: url("../img/img_lefttop.png") no-repeat scroll left top transparent;
-		content: "";
-		display: block;
-		height: 568px;
-		left: -421px;
-		position: absolute;
-		top: 0;
-		width: 421px;
-	}
-	#header .topbar .container > div:before
-	{
-		background: url("../img/img_righttop.png") no-repeat scroll right top transparent;	
-		content: "";
-		display: block;
-		height: 566px;
-		right: -422px;
-		position: absolute;
-		top: 0;
-		width: 422px;
-	}
 	#header .topbar .container{position:relative}
 	#header .topbar .container {background:#494949; padding-top:9px; padding-bottom:8px;}
 	.topbar .item-top a:hover{color:#fff}
 	.header .container > div{margin-bottom:20px}
 	#header_right {position:relative; float: right}
 	#header_logo {position: relative}
+
+@media (max-width: 979px) {
+	#header_logo {
+		bottom:17px;
+	}
+}
 
 /************************************************************************************************
 		TOPNAVIGATION
@@ -850,30 +837,9 @@ div.star_hover a, div.star a:hover { background-position: 0 -32px }
 #footer a:hover {color:#75b263} 
 	.footer .container {background: #ebebeb;}
 	#footer-bottom .container{background: #ebebeb;border-top:1px solid #dcdcdc; padding:15px 20px 15px 20px;position:relative;}
-	#footer-bottom .container:after{
-	
-		background: url("../img/left_imgbottom.png") no-repeat scroll left top transparent;
-		content: "";
-		display: block;
-		height: 316px;
-		left: -310px;
-		position: absolute;
-		bottom: 0;
-		width: 310px;
-		
-	}
-	
-	#footer-bottom .container:before
-	{
-		background: url("../img/right_imgbottom.png") no-repeat scroll right top transparent;	
-		content: "";
-		display: block;
-		height: 316px;
-		right: -292px;
-		position: absolute;
-		bottom: 0;
-		width: 292px;
-	}
+
+
+
 	/*-------------Go TOP---------*/
 #bttop{padding-top:7px; width:81px; height:19px;background:url("../img/bg_backtop.png") no-repeat; text-align:center;position:absolute;bottom:0px; left:45%;cursor:pointer; color:#fff;font-size:11px;}
 	.blockcategories_footer,
