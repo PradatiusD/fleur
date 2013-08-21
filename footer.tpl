@@ -52,8 +52,7 @@
 						<div class="container"><div class="row-fluid">
 								<div class="span6">
 									<div class="copyright">
-									{$LEO_COPYRIGHT}.<br> 
-										Design by <a href="http://www.leotheme.com" title="LeoTheme - Prestashop Themes Club">LeoTheme.Com</a>
+										Copyright 2013 Fleur-De-Lis Designs. All Rights Reserved.
 									</div>
 								</div>
 								{if $HOOK_FOOTNAV}
