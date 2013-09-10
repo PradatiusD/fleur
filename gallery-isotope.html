@@ -1,0 +1,164 @@
+<html>
+<head>
+	<script src="holder.js"></script>
+
+	<style>
+/* Start: Recommended Isotope styles */
+
+/**** Isotope Filtering ****/
+
+.isotope-item {
+  z-index: 2;
+}
+
+.isotope-hidden.isotope-item {
+  pointer-events: none;
+  z-index: 1;
+}
+
+/**** Isotope CSS3 transitions ****/
+
+.isotope,
+.isotope .isotope-item {
+  -webkit-transition-duration: 0.8s;
+     -moz-transition-duration: 0.8s;
+      -ms-transition-duration: 0.8s;
+       -o-transition-duration: 0.8s;
+          transition-duration: 0.8s;
+}
+
+.isotope {
+  -webkit-transition-property: height, width;
+     -moz-transition-property: height, width;
+      -ms-transition-property: height, width;
+       -o-transition-property: height, width;
+          transition-property: height, width;
+}
+
+.isotope .isotope-item {
+  -webkit-transition-property: -webkit-transform, opacity;
+     -moz-transition-property:    -moz-transform, opacity;
+      -ms-transition-property:     -ms-transform, opacity;
+       -o-transition-property:      -o-transform, opacity;
+          transition-property:         transform, opacity;
+}
+
+/**** disabling Isotope CSS3 transitions ****/
+
+.isotope.no-transition,
+.isotope.no-transition .isotope-item,
+.isotope .isotope-item.no-transition {
+  -webkit-transition-duration: 0s;
+     -moz-transition-duration: 0s;
+      -ms-transition-duration: 0s;
+       -o-transition-duration: 0s;
+          transition-duration: 0s;
+}
+
+/* End: Recommended Isotope styles */
+	</style>
+</head>
+<body>
+
+	<div id="gallery">
+		<img title="Hague" class="" src="holder.js/100x400" alt="">
+		<img title="test" class="" src="holder.js/200x200" alt="">
+		<img title="Weddings" class="" src="holder.js/100x100" alt="">
+		<img title="Hague" class="" src="holder.js/100x100" alt="">
+		<img title="boo" class="" src="holder.js/200x400" alt="">
+		<img title="tim" class="" src="holder.js/400x200" alt="">
+		<img title="too" class="" src="holder.js/400x400" alt="">
+		<img title="too" class="" src="holder.js/400x400" alt="">		
+	</div>
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src="jquery.isotope.min.js"></script>
+
+
+	<script>
+
+    $(function(){
+
+    	// Parse code from title and description to create nav filters
+    	var galleryFilterTitle =[];
+
+    	$("#gallery img").each(function(index) {
+    		galleryItemAttr = $(this).attr('title');
+    		// Add classes for Isotope
+    		$(this).addClass(galleryItemAttr)
+    		galleryFilterTitle.push(galleryItemAttr);
+    	})
+
+
+    	var galleryFilterTitle = galleryFilterTitle.filter(function(elem, pos) {
+		    return galleryFilterTitle.indexOf(elem) == pos;
+		})
+
+    	 console.log(galleryFilterTitle);
+
+		var uniquegalleryFilterTitle = [];
+		$.each(galleryFilterTitle, function(i, el){
+		    if($.inArray(el, uniquegalleryFilterTitle) === -1) uniquegalleryFilterTitle.push(el);
+		});
+
+		console.log(uniquegalleryFilterTitle)
+
+    	var galleryFilterLIs = [];
+
+    	for (var i = 0; i < uniquegalleryFilterTitle.length; i++) {
+    		galleryFilterLIs.push("<li><a href='#filter' data-option-value='."+uniquegalleryFilterTitle[i]+"'>" + uniquegalleryFilterTitle[i]+ "</a></li>")
+    	};
+
+    	galleryFilterLIsfinal = galleryFilterLIs.join("")
+    	
+
+    	$("#gallery").before('<section id="options"><ul id="filters" class="option-set clearfix" data-option-key="filter">'+galleryFilterLIsfinal+'</ul></section>')
+
+
+
+    	// Begin ISOTOPE CODE
+      
+      var $container = $('#gallery');
+      
+      $container.isotope({
+        itemSelector: 'img'
+      });
+
+	var $optionSets = $('#options .option-set'),
+          $optionLinks = $optionSets.find('a');
+
+      $optionLinks.click(function(){
+        var $this = $(this);
+        // don't proceed if already selected
+        if ( $this.hasClass('selected') ) {
+          return false;
+        }
+        var $optionSet = $this.parents('.option-set');
+        $optionSet.find('.selected').removeClass('selected');
+        $this.addClass('selected');
+  
+        // make option object dynamically, i.e. { filter: '.my-filter-class' }
+        var options = {},
+            key = $optionSet.attr('data-option-key'),
+            value = $this.attr('data-option-value');
+        // parse 'false' as false boolean
+        value = value === 'false' ? false : value;
+        options[ key ] = value;
+        if ( key === 'layoutMode' && typeof changeLayoutMode === 'function' ) {
+          // changes in layout modes need extra logic
+          changeLayoutMode( $this, options )
+        } else {
+          // otherwise, apply new options
+          $container.isotope( options );
+        }
+        
+        return false;
+      });
+
+
+
+    });
+  
+  </script>	
+</body>
+</html>
