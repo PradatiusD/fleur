@@ -2827,3 +2827,30 @@ ul.pagination .current span {
 }
 
 /* End: Recommended Isotope styles */
+
+
+#gallery img {
+
+  -webkit-transition: opacity 0.5s ease-out; 
+     -moz-transition: opacity 0.5s ease-out; 
+       -o-transition: opacity 0.5s ease-out; 
+          transition: opacity 0.5s ease-out; 
+
+}
+
+#gallery img:hover {
+  /* IE 8 */
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+
+  /* IE 5-7 */
+  filter: alpha(opacity=80);
+
+  /* Netscape */
+  -moz-opacity: 0.8;
+
+  /* Safari 1.x */
+  -khtml-opacity: 0.8;
+
+  /* Good browsers */
+  opacity: 0.8;
+ }

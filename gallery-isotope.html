@@ -62,17 +62,17 @@
 
 	<div id="gallery">
 		<img title="Hague" class="" src="holder.js/100x400" alt="">
-		<img title="test" class="" src="holder.js/200x200" alt="">
+		<img title="test" class="" src="holder.js/50x200" alt="">
 		<img title="Weddings" class="" src="holder.js/100x100" alt="">
-		<img title="Hague" class="" src="holder.js/100x100" alt="">
-		<img title="boo" class="" src="holder.js/200x400" alt="">
-		<img title="tim" class="" src="holder.js/400x200" alt="">
-		<img title="too" class="" src="holder.js/400x400" alt="">
-		<img title="too" class="" src="holder.js/400x400" alt="">		
+		<img title="Hague" class="" src="holder.js/45x100" alt="">
+		<img title="boo" class="" src="holder.js/200x340" alt="">
+		<img title="tim" class="" src="holder.js/132x200" alt="">
+		<img title="too" class="" src="holder.js/421x210" alt="">
+		<img title="too" class="" src="holder.js/245x195" alt="">		
 	</div>
 
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-	<script src="jquery.isotope.min.js"></script>
+	<script src="packery.js"></script>
 
 
 	<script>
@@ -116,45 +116,14 @@
 
 
 
-    	// Begin ISOTOPE CODE
+    	// Begin Packery CODE
       
-      var $container = $('#gallery');
-      
-      $container.isotope({
-        itemSelector: 'img'
+      var container = document.querySelector('#gallery');
+      var pckry = new Packery( container, {
+        // options
+        itemSelector: 'img',
+        gutter: 1
       });
-
-	var $optionSets = $('#options .option-set'),
-          $optionLinks = $optionSets.find('a');
-
-      $optionLinks.click(function(){
-        var $this = $(this);
-        // don't proceed if already selected
-        if ( $this.hasClass('selected') ) {
-          return false;
-        }
-        var $optionSet = $this.parents('.option-set');
-        $optionSet.find('.selected').removeClass('selected');
-        $this.addClass('selected');
-  
-        // make option object dynamically, i.e. { filter: '.my-filter-class' }
-        var options = {},
-            key = $optionSet.attr('data-option-key'),
-            value = $this.attr('data-option-value');
-        // parse 'false' as false boolean
-        value = value === 'false' ? false : value;
-        options[ key ] = value;
-        if ( key === 'layoutMode' && typeof changeLayoutMode === 'function' ) {
-          // changes in layout modes need extra logic
-          changeLayoutMode( $this, options )
-        } else {
-          // otherwise, apply new options
-          $container.isotope( options );
-        }
-        
-        return false;
-      });
-
 
 
     });
