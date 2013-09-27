@@ -2854,3 +2854,12 @@ ul.pagination .current span {
   /* Good browsers */
   opacity: 0.8;
  }
+
+ #gallery img.gigante.landscape {
+	width:100%;
+ }
+
+ #gallery img.gigante.portrait {
+ 	width:50%;
+ 	
+ }

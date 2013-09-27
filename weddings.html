@@ -66,10 +66,10 @@ jQuery(document).ready(function($){
 
       // // If you click on image, open up separate page larger
 
-      $("#gallery img").click(function () {
-       var BigImageURL = $(this).attr('src'); 
-        window.open(BigImageURL, '_blank');
-      });
+      // $("#gallery img").click(function () {
+      //  var BigImageURL = $(this).attr('src'); 
+      //   window.open(BigImageURL, '_blank');
+      // });
 
 
       // Begin Packery CODE
@@ -87,19 +87,28 @@ jQuery(document).ready(function($){
       })
 
 
-      // $('#gallery img').click(function(){
-      //   $('#gallery img').removeClass('gigante');
-      //   var $targetImg = $(this);
-      //   $targetImg.addClass('gigante');
-      //   var $container = $('#gallery');
-      //   // initialize
-      //   $container.packery({
-      //     itemSelector: 'img',
-      //     gutter: 5,
-      //     fit: $targetImg,
-      //     transitionDuration: "1.5s",
-      //   });
-      // })
+      $('#gallery img').click(function(){
+        $('#gallery img').removeClass('gigante landscape portrait');
+
+        var $targetImg = $(this);
+        $targetImg.addClass('gigante');
+
+        var $targetImg = $(this);
+        if ($targetImg.width() > $targetImg.height()) {
+          $targetImg.addClass('landscape');
+        } else {
+          $targetImg.addClass('portrait');
+        }
+
+        var $container = $('#gallery');
+        // initialize
+        $container.packery({
+          itemSelector: 'img',
+          gutter: 5,
+          fit: $targetImg,
+          transitionDuration: "1.5s",
+        });
+      })
 
 
       

@@ -1,9 +1,16 @@
-
-
 $('#gallery img').click(function(){
-	$('#gallery img').removeClass('gigante');
+	$('#gallery img').removeClass('gigante landscape portrait');
+
 	var $targetImg = $(this);
 	$targetImg.addClass('gigante');
+
+	var $targetImg = $(this);
+	if ($targetImg.width() > $targetImg.height()) {
+		$targetImg.addClass('landscape');
+	} else {
+		$targetImg.addClass('portrait');
+	}
+
 	var $container = $('#gallery');
 	// initialize
 	$container.packery({
