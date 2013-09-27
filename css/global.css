@@ -2743,8 +2743,36 @@ ul.pagination .current span {
 /* Gallery for Weddings page */
 
 #gallery {
-	height:1200px !important;
-	width:95%;
+	width:100%;
+}
+
+#gallery img:hover {
+	cursor: pointer;
+}
+
+#filters {
+    margin:1em 0em;
+    padding:0em;
+}
+    
+#filters li {
+    display:inline-block;
+}
+#filters li a {
+	padding:1em;
+    background:#75B263;
+    color:white; margin:0.05em;
+      -webkit-transition: all 0.8s;
+     -moz-transition: all 0.8s;
+      -ms-transition: all 0.8s;
+       -o-transition: all 0.8s;
+          transition: all 0.8s;
+}
+}
+
+#filters li a:hover {
+	background:#75B263;
+	color:white;
 }
 /* Start: Recommended Isotope styles */
 

@@ -1,6 +1,7 @@
 <h2>Weddings</h2>
 <p>We regularly do custom arrangements for weddings, and we would be more than glad to take a moment to listen to what your specific wedding needs are so that we can accomodate accordingly. Feel free to contact us if you have any questions</p>
-<div id="gallery"><img title="Bride" src="http://www.fleurmiami.com/img/cms/hague-bride-bouquet.jpg" alt="Bride" width="600" height="400" /><img title="Hague" src="http://www.fleurmiami.com/img/cms/hague-blue-highlighting.jpg" alt="Blue Highlighting" width="400" height="267" /></div>
+<p><strong>Please be patient as the images will take time to load. Click on the images to get a higher resolution version.</strong></p>
+<div id="gallery"><img style="line-height: 15px;" title="Bouquets" src="http://fleurmiami.com/img/cms/21676-0082.jpg" alt="Bridal Bouquet, peonies" width="102" height="153" /><img title="Bouquets" src="http://www.fleurmiami.com/img/cms/hague-car-bouquet.jpg" alt="Bridal Bouquet" width="230" height="153" /><img title="Bouquets" src="http://www.fleurmiami.com/img/cms/hague-bride-bouquet.jpg" alt="Bridal Bouquets, bride, peonies" width="230" height="153" /><img style="line-height: 15px;" title="Ceremony" src="http://fleurmiami.com/img/cms/185949_192000174173025_2333482_n.jpg" alt="Ceremony Arrangement" width="86" height="153" /><img title="Centerpieces" src="http://fleurmiami.com/img/cms/21676-0623.jpg" alt="Wedding Reception, Centerpieces" width="230" height="153" /><img title="Centerpieces" src="http://www.fleurmiami.com/img/cms/hague-blue-highlighting.jpg" alt="Reception, Centerpieces" width="230" height="153" /><img title="Centerpieces" src="http://fleurmiami.com/img/cms/hague-flower-centerpiece.jpg" alt="Reception, Centerpieces" width="230" height="153" /><img title="Bride and Groom Tables" src="http://fleurmiami.com/img/cms/21676-0621.jpg" alt="Bride and Groom Table" width="230" height="153" /><img title="Bouquets" src="http://fleurmiami.com/img/cms/21676-0080.jpg" alt="Bridal party, bouquets" width="230" height="153" /><img style="cursor: pointer;" title="Centerpieces" src="http://fleurmiami.com/img/cms/430532_365242386848802_1575832122_n.jpg" alt="Outdoor wedding, Reception centerpiece" width="115" height="153" /><img title="Centerpieces" src="http://fleurmiami.com/img/cms/29896_116429085063468_8076176_n.jpg" alt="Reception, Centerpieces" width="115" height="153" /><img title="Centerpieces" src="http://fleurmiami.com/img/cms/29896_116429095063467_1014113_n.jpg" alt="Wedding Reception, centerpieces" width="115" height="153" /><img title="Bride and Groom Tables" src="http://fleurmiami.com/img/cms/29896_116429111730132_5956698_n.jpg" alt="Bride and Groom Table, Wedding Reception, Bride and Groom arrangement" width="204" height="153" /><img title="Centerpieces" src="http://fleurmiami.com/img/cms/29896_116429118396798_1633899_n.jpg" alt="Curly willow centerpiece, Wedding Reception" width="115" height="153" /><img style="line-height: 15px; cursor: pointer;" title="Ceremony" src="http://fleurmiami.com/img/cms/21676-0287.jpg" alt="Ceremony arrangements, pew holders" width="102" height="153" /></div>
 <script>// <![CDATA[
 	/*!
  * imagesLoaded v3.0.4
@@ -345,8 +346,14 @@ jQuery(document).ready(function($){
     	galleryFilterLIsfinal = galleryFilterLIs.join("")
     	
 
-    	$("#gallery").before('<section id="options"><ul id="filters" class="option-set clearfix" data-option-key="filter">'+galleryFilterLIsfinal+'</ul></section>')
+    	$("#gallery").before('<section id="options"><ul id="filters" class="option-set clearfix" data-option-key="filter"><li><a href="#filter" data-option-value="*" class="selected">Show All</a></li>'+galleryFilterLIsfinal+'</ul></section>')
 
+    	// If you click on image, open up separate page larger
+
+    	$("#gallery img").click(function () {
+    		var BigImageURL = $(this).attr('src'); 
+	      window.open(BigImageURL, '_blank');
+	    });
 
 
     	// Begin ISOTOPE CODE
@@ -388,7 +395,7 @@ jQuery(document).ready(function($){
 				          // otherwise, apply new options
 				          $container.isotope( options );
 				        }
-				        
+				        $container.isotope( 'shuffle', function(){$container.isotope('reLayout')})
 				        return false;
 				      });
 		});
