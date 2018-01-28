@@ -5,3 +5,4 @@ production.psd
 fonts/
 jquery.isotope.min.js
 .DS_Store
+.idea/
